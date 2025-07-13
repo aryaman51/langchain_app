@@ -1,0 +1,11 @@
+streamlit
+langchain
+openai
+python-dotenv
+PyMuPDF
+chromadb
+tiktoken
+pypdf
+beautifulsoup4
+unstructured
+langchain-community
