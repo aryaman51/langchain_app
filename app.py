@@ -38,9 +38,16 @@ def split_text(text):
     return splitter.split_text(text)
 
 # 🧱 Embedding + Vectorstore
+# def embed_and_store(docs):
+#     embeddings = OpenAIEmbeddings(openai_api_key=openai_key)
+#     return Chroma.from_texts(docs, embedding=embeddings)
+
+from langchain.vectorstores import FAISS
+
 def embed_and_store(docs):
     embeddings = OpenAIEmbeddings(openai_api_key=openai_key)
-    return Chroma.from_texts(docs, embedding=embeddings)
+    return FAISS.from_texts(docs, embedding=embeddings)
+
 
 # 🎯 Answer Questions
 def answer_query(query, db):
