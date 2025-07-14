@@ -9,3 +9,6 @@ pypdf
 beautifulsoup4
 unstructured
 langchain-community
+faiss-cpu
+langchain-openai
+langchain-text-splitters
