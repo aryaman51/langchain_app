@@ -13,7 +13,12 @@ from langchain.schema import HumanMessage
 
 # 🔐 Load secrets (supports local `.env`)
 load_dotenv()
-openai_key = st.secrets["openai_key"] if "openai_key" in st.secrets else os.getenv("OPENAI_API_KEY")
+openai_key = st.secrets.get("openai_key") or os.getenv("OPENAI_API_KEY")
+
+if not openai_key:
+    st.error("❌ OpenAI API key not found. Please add it to Streamlit secrets or a .env file.")
+    st.stop()
+
 
 # 🚀 Streamlit UI
 st.set_page_config(page_title="PDF Q&A", page_icon="📄")
